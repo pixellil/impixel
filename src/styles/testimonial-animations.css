@@ -1,0 +1,158 @@
+/* Testimonial Scroll Animations */
+.testimonial-scroll-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-scroll-track {
+  display: flex;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.testimonial-item {
+  flex: 0 0 100%;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.testimonial-item.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.testimonial-item.inactive {
+  opacity: 0.7;
+  transform: scale(0.95);
+}
+
+/* Orbit animations for collaborators */
+@keyframes orbitRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.orbit-container {
+  animation: orbitRotate 60s linear infinite;
+}
+
+.orbit-item {
+  transition: transform 0.3s ease-in-out;
+}
+
+.orbit-item:hover {
+  transform: scale(1.1) translateZ(20px);
+}
+
+/* Floating animation for testimonial cards */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.testimonial-card {
+  animation: float 6s ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+/* Pulse animation for dots */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.dot-indicator {
+  animation: pulse 2s ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+.dot-indicator.active {
+  animation: none;
+  background: linear-gradient(90deg, #f05b3d 0%, #ff6b5b 100%);
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for testimonials */
+.testimonial-scrollbar::-webkit-scrollbar {
+  height: 4px;
+}
+
+.testimonial-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+}
+
+.testimonial-scrollbar::-webkit-scrollbar-thumb {
+  background: #f05b3d;
+  border-radius: 2px;
+}
+
+.testimonial-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #d64523;
+}
+
+/* Fade in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Stagger animation for multiple items */
+.stagger-item {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.stagger-item:nth-child(1) { animation-delay: 0.1s; }
+.stagger-item:nth-child(2) { animation-delay: 0.2s; }
+.stagger-item:nth-child(3) { animation-delay: 0.3s; }
+
+/* Infinite horizontal scroll animation */
+@keyframes scrollHorizontal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-horizontal {
+  animation: scrollHorizontal 20s linear infinite;
+  width: fit-content;
+}
+
+/* Pause animation on hover */
+.animate-scroll-horizontal:hover {
+  animation-play-state: paused;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}

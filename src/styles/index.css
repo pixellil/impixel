@@ -1,0 +1,26 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+
+/* Infinite horizontal auto scroll */
+@keyframes infiniteScrollHorizontal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-infinite-scroll-horizontal {
+  display: flex;
+  width: max-content;
+  animation: infiniteScrollHorizontal 32s linear infinite;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.animate-infinite-scroll-horizontal:hover {
+  animation-play-state: paused;
+}
+
