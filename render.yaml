@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: impixel-site
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: CONTACT_TO_EMAIL
+        value: 814pixel@gmail.com
+      - key: CONTACT_FROM_EMAIL
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
