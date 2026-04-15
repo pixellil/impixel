@@ -78,11 +78,11 @@ function validateContactPayload(payload) {
   const email = typeof payload.email === "string" ? payload.email.trim() : "";
   const company = typeof payload.company === "string" ? payload.company.trim() : "";
   const message = typeof payload.message === "string" ? payload.message.trim() : "";
-  const website = typeof payload.website === "string" ? payload.website.trim() : "";
+  const botField = typeof payload.botField === "string" ? payload.botField.trim() : "";
   const locale = payload.locale === "en" ? "en" : "fr";
   const elapsedMs = typeof payload.elapsedMs === "number" ? payload.elapsedMs : 0;
 
-  if (website) {
+  if (botField) {
     return { ok: false, status: 400, error: "Spam detected." };
   }
 
@@ -98,11 +98,11 @@ function validateContactPayload(payload) {
     return { ok: false, status: 400, error: "Invalid company." };
   }
 
-  if (!message || message.length < 20 || message.length > 4000) {
+  if (!message || message.length < 10 || message.length > 4000) {
     return { ok: false, status: 400, error: "Invalid message." };
   }
 
-  if (elapsedMs > 0 && elapsedMs < 1500) {
+  if (elapsedMs > 0 && elapsedMs < 500) {
     return { ok: false, status: 400, error: "Form submitted too quickly." };
   }
 

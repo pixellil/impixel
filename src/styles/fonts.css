@@ -1,3 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,700;0,800;0,900;1,900&family=Jost:wght@400&display=swap');
-@import url('https://fonts.cdnfonts.com/css/aspekta');
-@import url('https://fonts.cdnfonts.com/css/intel-one-mono');
+
+/* Stable local aliases to avoid flaky third-party font CDN failures in production. */
+@font-face {
+  font-family: 'Aspekta';
+  src: local('Aptos'), local('Segoe UI'), local('Arial');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Intel_One_Mono';
+  src: local('Consolas'), local('Courier New'), local('Liberation Mono');
+  font-display: swap;
+}

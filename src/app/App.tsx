@@ -15,6 +15,8 @@ import imgRectangle24 from "figma:asset/210386a63d3d289864fce936b318665b3191f8b0
 import imgSubtract1 from "figma:asset/8e69641ac6fbbfded0e0fbbb96029f0f98ed6d6c.png";
 import imgMk from "../assets/mk.png";
 import imgHalil from "../assets/halil.png";
+import logoDark from "../assets/impixelSurNoir.png";
+import logoLight from "../assets/impixelSurBlanc.png";
 
 function ImPixelLogo({ className = "", dark = false }: { className?: string; dark?: boolean }) {
   return (
@@ -23,8 +25,8 @@ function ImPixelLogo({ className = "", dark = false }: { className?: string; dar
       whileHover={{ scale: 1.05 }}
       transition={{ duration: 0.3 }}
     >
-      <img 
-        src={dark ? "/src/assets/impixelSurNoir.png" : "/src/assets/impixelSurBlanc.png"} 
+      <img
+        src={dark ? logoDark : logoLight}
         alt="I'MPIXEL Logo"
         className="h-9 object-contain"
       />
@@ -388,7 +390,7 @@ export default function App() {
     email: "",
     company: "",
     message: "",
-    website: "",
+    botField: "",
   });
   const t = translations[language];
 
@@ -401,7 +403,7 @@ export default function App() {
     }, 200);
   }
 
-  const updateContactField = (field: "name" | "email" | "company" | "message" | "website", value: string) => {
+  const updateContactField = (field: "name" | "email" | "company" | "message" | "botField", value: string) => {
     setContactForm((current) => ({
       ...current,
       [field]: value,
@@ -426,7 +428,7 @@ export default function App() {
           email: contactForm.email.trim(),
           company: contactForm.company.trim(),
           message: contactForm.message.trim(),
-          website: contactForm.website.trim(),
+          botField: contactForm.botField.trim(),
           locale: language,
           elapsedMs: contactFormOpenedAt ? Date.now() - contactFormOpenedAt : null,
         }),
@@ -449,7 +451,7 @@ export default function App() {
         email: "",
         company: "",
         message: "",
-        website: "",
+        botField: "",
       });
       setContactFormOpenedAt(Date.now());
     } catch (error) {
@@ -812,17 +814,17 @@ export default function App() {
                     className="w-full h-auto rounded-lg object-cover"
                   />
                   <img
-                    src="/assets/mk.png"
+                    src={imgMk}
                     alt="I'mPixel"
                     className="w-full h-auto rounded-lg object-cover"
                   />
                   <img
-                    src="/assets/hali.png"
+                    src={imgHalil}
                     alt="I'mPixel"
                     className="w-full h-auto rounded-lg object-cover"
                   />
                   <img
-                    src="/assets/mk.png"
+                    src={imgMk}
                     alt="I'mPixel"
                     className="w-full h-auto rounded-lg object-cover"
                   />
@@ -1279,8 +1281,8 @@ export default function App() {
                         type="text"
                         tabIndex={-1}
                         autoComplete="off"
-                        value={contactForm.website}
-                        onChange={(event) => updateContactField("website", event.target.value)}
+                        value={contactForm.botField}
+                        onChange={(event) => updateContactField("botField", event.target.value)}
                         className="hidden"
                         aria-hidden="true"
                       />
